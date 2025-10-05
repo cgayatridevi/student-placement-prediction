@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Student Placement Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Student Placement Predictor</h1>
+            <p>Predict your placement success using Machine Learning</p>
+        </header>
+        
+        <main>
+            <form id="predictionForm" class="prediction-form">
+                <div class="form-section">
+                    <h3>📊 Academic & Skills Information</h3>
+
+                    <!-- Numeric Features -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="CGPA">CGPA:</label>
+                            <input type="number" id="CGPA" name="CGPA" step="0.01" min="0" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Internships">Number of Internships:</label>
+                            <input type="number" id="Internships" name="Internships" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="Projects">Number of Projects:</label>
+                            <input type="number" id="Projects" name="Projects" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Workshops">Workshops / Certifications:</label>
+                            <input type="number" id="Workshops" name="Workshops" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="AptitudeTestScore">Aptitude Test Score:</label>
+                            <input type="number" id="AptitudeTestScore" name="AptitudeTestScore" min="0" max="100" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="SoftSkillsRating">Soft Skills Rating (1-5):</label>
+                            <input type="number" id="SoftSkillsRating" name="SoftSkillsRating" min="1" max="5" step="0.1" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="SSC_Marks">SSC Marks (%):</label>
+                            <input type="number" id="SSC_Marks" name="SSC_Marks" step="0.01" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="HSC_Marks">HSC Marks (%):</label>
+                            <input type="number" id="HSC_Marks" name="HSC_Marks" step="0.01" min="0" max="100" required>
+                        </div>
+                    </div>
+
+                    <!-- Binary Features -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ExtracurricularActivities">Extracurricular Activities:</label>
+                            <select id="ExtracurricularActivities" name="ExtracurricularActivities" required>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="PlacementTraining">Placement Training:</label>
+                            <select id="PlacementTraining" name="PlacementTraining" required>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" class="predict-btn">
+                        🔮 Predict Placement
+                    </button>
+                </div>
+            </form>
+
+            <div id="result" class="result-container" style="display: none;"></div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

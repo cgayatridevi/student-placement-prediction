@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Student Placement Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>About This Project</h1>
+        <p>This application predicts student placement chances using Machine Learning.</p>
+
+        {% if model_info %}
+            <h2>Model Information</h2>
+            <ul>
+                <li><b>Model Type:</b> {{ model_info.model_type }}</li>
+                <li><b>Number of Features:</b> {{ model_info.features_count }}</li>
+                <li><b>Target Classes:</b> {{ model_info.target_classes }}</li>
+            </ul>
+        {% else %}
+            <p>No model information available.</p>
+        {% endif %}
+
+        <a href="/">⬅ Back to Home</a>
+    </div>
+</body>
+</html>
